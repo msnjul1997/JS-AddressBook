@@ -104,6 +104,40 @@ class Contact{
 }
 let addressBookArray = new Array();
 
+function contactExists(firstName, lastName) {
+    return addressBookArray.some(contact => contact.firstName == firstName && contact.lastName == lastName);
+}
+
+function editContact(firstName, lastName, property, newValue) {
+    if (contactExists(firstName, lastName)) {
+        switch (property) {
+            case "address":
+                addressBookArray.find((contact) => contact.firstName == firstName).address = newValue;
+                break;
+            case "city":
+                addressBookArray.find((contact) => contact.firstName == firstName).city = newValue;
+                break;
+            case "state":
+                addressBookArray.find((contact) => contact.firstName == firstName).state = newValue;
+                break;
+            case "zip":
+                addressBookArray.find((contact) => contact.firstName == firstName).zip = newValue;
+                break;
+            case "phoneNumber":
+                addressBookArray.find((contact) => contact.firstName == firstName).phoneNumber = newValue;
+                break;
+            case "email":
+                addressBookArray.find((contact) => contact.firstName == firstName).email = newValue;
+                break;
+            default:
+                console.log("Enter valid property");
+        }
+    }
+    else {
+        console.log("Contact Does Not Exist");
+    }
+}
+
 try{
     addressBookArray.push(new Contact("Santhosh", "Naik", "Places", "Hyd", "Ts", "87342", "9494291232", "kittums@gmail.com"));
 }
@@ -116,4 +150,8 @@ try{
 catch(e){
     console.log(e);
 }
+console.log(addressBookArray);
+
+console.log("\nAfter Editing Contact")
+editContact("Santhosh","Niha","address","Hyd");
 console.log(addressBookArray);
