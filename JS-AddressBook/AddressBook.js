@@ -102,6 +102,18 @@ class Contact{
             throw "**** EMAIL ADDRESS is Incorrect ****";
     }
 }
-let person1 = new Contact("Santhosh","Naik","Places","Hyd","Ts",87523,9494291232,"kittums@gmail.com")
-console.log(person1.Address);
-checkValidationForName(person1.FirstName)
+let addressBookArray = new Array();
+
+try{
+    addressBookArray.push(new Contact("Santhosh", "Naik", "Places", "Hyd", "Ts", "87342", "9494291232", "kittums@gmail.com"));
+}
+catch(e){
+    console.log(e);
+}
+try{
+    addressBookArray.push(new Contact("Niharika", "Vanapari", "Places", "Hyd", "Ts", "87442", "9494291233", "Nihams@gmail.com"));
+}
+catch(e){
+    console.log(e);
+}
+console.log(addressBookArray);
